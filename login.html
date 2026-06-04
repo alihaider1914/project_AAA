@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Smart Study Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="auth-page">
+  <div class="auth-card">
+
+    <!-- Logo -->
+    <div class="auth-logo">
+      <div class="brand-icon-lg"><i class="bi bi-mortarboard-fill"></i></div>
+      <h2>Welcome back</h2>
+      <p>Log in to your Study Planner account</p>
+    </div>
+
+    <!-- Alert -->
+    <div id="alertBox" class="alert d-none mb-3 py-2 px-3" role="alert" style="font-size:.85rem;border-radius:9px"></div>
+
+    <!-- Form -->
+    <form id="loginForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label">Email Address</label>
+        <div class="input-group">
+          <span class="input-group-text" style="border-radius:9px 0 0 9px;background:#f8fafc;border:1.5px solid #e2e8f0;border-right:none">
+            <i class="bi bi-envelope text-muted"></i>
+          </span>
+          <input type="email" class="form-control" id="email" placeholder="you@example.com" required
+                 style="border-left:none;border-radius:0 9px 9px 0">
+        </div>
+      </div>
+      <div class="mb-4">
+        <label class="form-label">Password</label>
+        <div class="input-group">
+          <span class="input-group-text" style="border-radius:9px 0 0 9px;background:#f8fafc;border:1.5px solid #e2e8f0;border-right:none">
+            <i class="bi bi-lock text-muted"></i>
+          </span>
+          <input type="password" class="form-control" id="password" placeholder="Your password" required
+                 style="border-left:none;border-radius:0 9px 9px 0">
+          <button type="button" class="btn btn-outline-secondary" id="togglePass"
+                  style="border-radius:0 9px 9px 0;border:1.5px solid #e2e8f0;border-left:none;background:#f8fafc">
+            <i class="bi bi-eye" id="eyeIcon"></i>
+          </button>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 mb-3" id="submitBtn">
+        <i class="bi bi-box-arrow-in-right me-2"></i>Log In
+      </button>
+    </form>
+
+    <div class="auth-divider">or</div>
+
+    <div class="text-center" style="font-size:.875rem">
+      Don't have an account?
+      <a href="signup.html" class="fw-700 text-decoration-none" style="color:#4f46e5">Sign up free</a>
+    </div>
+    <div class="text-center mt-2">
+      <a href="index.html" class="text-muted text-decoration-none" style="font-size:.8rem">
+        <i class="bi bi-arrow-left me-1"></i>Back to home
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const form      = document.getElementById('loginForm');
+  const alertBox  = document.getElementById('alertBox');
+  const submitBtn = document.getElementById('submitBtn');
+  const togglePass = document.getElementById('togglePass');
+  const pwInput    = document.getElementById('password');
+  const eyeIcon    = document.getElementById('eyeIcon');
+
+  togglePass.addEventListener('click', () => {
+    const show = pwInput.type === 'password';
+    pwInput.type = show ? 'text' : 'password';
+    eyeIcon.className = show ? 'bi bi-eye-slash' : 'bi bi-eye';
+  });
+
+  function showAlert(msg, type) {
+    alertBox.className = `alert alert-${type} mb-3 py-2 px-3`;
+    alertBox.innerHTML = `<i class="bi bi-${type === 'danger' ? 'x-circle' : 'check-circle'}-fill me-2"></i>${msg}`;
+    alertBox.classList.remove('d-none');
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email    = document.getElementById('email').value.trim();
+    const password = pwInput.value;
+
+    if (!email || !password) { showAlert('Please fill in all fields.', 'warning'); return; }
+
+    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Logging in…';
+    submitBtn.disabled = true;
+
+    try {
+      const res = await fetch('api/login.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await res.json();
+
+      if (data.success) {
+        showAlert('Login successful! Redirecting…', 'success');
+        setTimeout(() => window.location.href = 'dashboard.php', 800);
+      } else {
+        showAlert(data.message || 'Login failed. Try again.', 'danger');
+        submitBtn.innerHTML = '<i class="bi bi-box-arrow-in-right me-2"></i>Log In';
+        submitBtn.disabled = false;
+      }
+    } catch {
+      showAlert('Connection error. Is the server running?', 'danger');
+      submitBtn.innerHTML = '<i class="bi bi-box-arrow-in-right me-2"></i>Log In';
+      submitBtn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

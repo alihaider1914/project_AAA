@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Study Planner — Plan Smarter, Study Better</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="assets/css/style.css" rel="stylesheet">
+</head>
+<body style="background:#f1f5f9">
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg position-absolute w-100" style="z-index:10;top:0">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.html">
+      <div class="brand-icon"><i class="bi bi-mortarboard-fill"></i></div>
+      <span class="fw-800 text-white">Study<span style="color:#a5b4fc">Planner</span></span>
+    </a>
+    <div class="ms-auto d-flex gap-2">
+      <a href="login.html"  class="btn btn-outline-light btn-sm px-3">Login</a>
+      <a href="signup.html" class="btn btn-light btn-sm px-3 fw-600">Sign Up Free</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero-section">
+  <div class="container position-relative" style="z-index:2">
+    <div class="row align-items-center min-vh-100 py-5">
+      <div class="col-lg-6 text-white">
+        <div class="d-inline-flex align-items-center gap-2 mb-3 px-3 py-1 rounded-pill" style="background:rgba(255,255,255,.1);font-size:.82rem;font-weight:600">
+          <i class="bi bi-stars text-warning"></i> Smart &amp; Organized Learning
+        </div>
+        <h1 class="fw-800 mb-3" style="font-size:clamp(2rem,5vw,3.25rem);line-height:1.15">
+          Plan Smarter,<br><span style="color:#a5b4fc">Study Better.</span>
+        </h1>
+        <p class="mb-4 text-white-75" style="font-size:1.05rem;max-width:480px;opacity:.85">
+          Organize your subjects, manage tasks, and build consistent study schedules — all in one clean dashboard.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="signup.html" class="btn btn-light fw-700 px-4 py-2" style="border-radius:10px;font-size:.95rem">
+            Get Started Free <i class="bi bi-arrow-right ms-1"></i>
+          </a>
+          <a href="login.html" class="btn btn-outline-light fw-600 px-4 py-2" style="border-radius:10px;font-size:.95rem">
+            Log In
+          </a>
+        </div>
+        <div class="d-flex gap-4 mt-4">
+          <div class="text-white-75">
+            <span class="fw-800 fs-5" style="color:#a5b4fc">100%</span><br>
+            <small style="opacity:.7">Free to use</small>
+          </div>
+          <div class="text-white-75">
+            <span class="fw-800 fs-5" style="color:#a5b4fc">Fast</span><br>
+            <small style="opacity:.7">Setup in 1 min</small>
+          </div>
+          <div class="text-white-75">
+            <span class="fw-800 fs-5" style="color:#a5b4fc">Secure</span><br>
+            <small style="opacity:.7">Private data</small>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-flex justify-content-end">
+        <!-- Floating UI preview cards -->
+        <div class="position-relative" style="width:380px;height:420px">
+          <div class="position-absolute p-3 rounded-3 shadow-lg" style="background:#fff;top:0;right:0;width:320px">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="stat-icon indigo" style="width:36px;height:36px;border-radius:8px;font-size:.9rem"><i class="bi bi-journal-bookmark-fill"></i></div>
+              <div>
+                <div class="fw-700" style="font-size:.85rem">Subjects</div>
+                <div class="fw-800 fs-5" style="color:#4f46e5">5 Active</div>
+              </div>
+            </div>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex align-items-center gap-2 p-2 rounded-2" style="background:#f8fafc">
+                <div style="width:10px;height:10px;border-radius:3px;background:#4f46e5"></div>
+                <span style="font-size:.82rem;font-weight:600">Mathematics</span>
+                <span class="ms-auto badge" style="background:#e0e7ff;color:#4f46e5;font-size:.7rem">4 tasks</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 p-2 rounded-2" style="background:#f8fafc">
+                <div style="width:10px;height:10px;border-radius:3px;background:#06b6d4"></div>
+                <span style="font-size:.82rem;font-weight:600">Physics</span>
+                <span class="ms-auto badge" style="background:#cffafe;color:#0e7490;font-size:.7rem">2 tasks</span>
+              </div>
+              <div class="d-flex align-items-center gap-2 p-2 rounded-2" style="background:#f8fafc">
+                <div style="width:10px;height:10px;border-radius:3px;background:#10b981"></div>
+                <span style="font-size:.82rem;font-weight:600">English</span>
+                <span class="ms-auto badge" style="background:#d1fae5;color:#065f46;font-size:.7rem">3 tasks</span>
+              </div>
+            </div>
+          </div>
+          <div class="position-absolute p-3 rounded-3 shadow-lg" style="background:#fff;bottom:20px;left:0;width:260px">
+            <div class="fw-700 mb-2" style="font-size:.82rem;color:#374151">Today's Schedule</div>
+            <div class="d-flex flex-column gap-2">
+              <div class="d-flex gap-2 p-2 rounded-2" style="background:#f8fafc;border-left:3px solid #4f46e5">
+                <div style="font-size:.72rem;font-weight:700;color:#4f46e5;min-width:65px">9:00 AM</div>
+                <div style="font-size:.78rem;font-weight:600">Math Study</div>
+              </div>
+              <div class="d-flex gap-2 p-2 rounded-2" style="background:#f8fafc;border-left:3px solid #10b981">
+                <div style="font-size:.72rem;font-weight:700;color:#10b981;min-width:65px">11:30 AM</div>
+                <div style="font-size:.78rem;font-weight:600">Reading Session</div>
+              </div>
+              <div class="d-flex gap-2 p-2 rounded-2" style="background:#f8fafc;border-left:3px solid #f59e0b">
+                <div style="font-size:.72rem;font-weight:700;color:#f59e0b;min-width:65px">2:00 PM</div>
+                <div style="font-size:.78rem;font-weight:600">Physics Lab</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="py-5" style="background:#fff">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="fw-800" style="font-size:1.9rem">Everything you need to study effectively</h2>
+      <p class="text-muted mx-auto" style="max-width:480px;font-size:.95rem">One system to organize your entire academic life — subjects, tasks, and schedule in one place.</p>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#e0e7ff"><i class="bi bi-journal-bookmark-fill" style="color:#4f46e5"></i></div>
+          <h5 class="fw-700">Subject Manager</h5>
+          <p class="text-muted small mb-0">Organize all your courses with custom colors and descriptions. See all related tasks at a glance.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#d1fae5"><i class="bi bi-check2-square" style="color:#10b981"></i></div>
+          <h5 class="fw-700">Task Tracker</h5>
+          <p class="text-muted small mb-0">Add tasks with due dates, priorities, and statuses. Never miss a deadline or forget an assignment.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-card">
+          <div class="feature-icon" style="background:#fef3c7"><i class="bi bi-calendar-week-fill" style="color:#f59e0b"></i></div>
+          <h5 class="fw-700">Weekly Schedule</h5>
+          <p class="text-muted small mb-0">Build a structured weekly study timetable. Know exactly what to study and when, every single day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-5" style="background:linear-gradient(135deg,#1e1b4b,#4338ca)">
+  <div class="container text-center py-4">
+    <h2 class="fw-800 text-white mb-2" style="font-size:1.8rem">Ready to take control of your studies?</h2>
+    <p class="text-white-50 mb-4">Join now — it's completely free.</p>
+    <a href="signup.html" class="btn btn-light fw-700 px-5 py-2" style="border-radius:10px;font-size:.95rem">
+      Create Your Account <i class="bi bi-arrow-right ms-1"></i>
+    </a>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="py-4 text-center text-muted" style="background:#fff;border-top:1px solid #e2e8f0;font-size:.82rem">
+  &copy; 2025 Smart Study Planner &mdash; Built with PHP, MySQL &amp; Bootstrap 5
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
